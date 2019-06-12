@@ -45,7 +45,7 @@ db.once('open', () => {
   console.log('db connection successful');
 });
 
-// app.use('/api', routes);
+app.use('/api', routes);
 
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 
