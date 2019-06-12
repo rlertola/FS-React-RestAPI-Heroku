@@ -13,6 +13,7 @@ const jsonParser = require('body-parser').json;
 const enableGlobalErrorLogging =
   process.env.ENABLE_GLOBAL_ERROR_LOGGING === 'true';
 
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 // Body parser.
 app.use(jsonParser());
 
@@ -84,8 +85,7 @@ app.use((req, res) => {
 app.set('port', process.env.PORT || 5000);
 
 app.use(express.static(path.join(__dirname, 'client', 'build')));
-// ...
-// Right before your app.listen(), add this:
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
