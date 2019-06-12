@@ -48,11 +48,11 @@ db.once('open', () => {
 app.use('/api', routes);
 
 // Friendly greeting for the root route.
-app.get('/', (req, res) => {
-  res.json({
-    message: 'Welcome to the REST API project!'
-  });
-});
+// app.get('/', (req, res) => {
+//   res.json({
+//     message: 'Welcome to the REST API project!'
+//   });
+// });
 
 // Global error handler.
 app.use((err, req, res, next) => {
