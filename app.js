@@ -27,10 +27,13 @@ const routes = require('./routes');
 const mongoose = require('mongoose');
 
 // Connect to mongodb server. The settings are to fix deprecation warnings.
-mongoose.connect('mongodb://localhost:27017/fsjstd-restapi', {
-  useNewUrlParser: true,
-  useCreateIndex: true
-});
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://localhost:27017/fsjstd-restapi',
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  }
+);
 
 const db = mongoose.connection;
 
@@ -69,16 +72,24 @@ app.use((req, res) => {
   });
 });
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
-  app.get('*', (req, res) => {
-    res.sendfile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-}
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static('client/build'));
+
+//   app.get('*', (req, res) => {
+//     res.sendfile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+//   });
+// }
 
 // Set port.
 app.set('port', process.env.PORT || 5000);
+
+// ...
+// Right before your app.listen(), add this:
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
 
 // Start listening on port.
 const server = app.listen(app.get('port'), () => {

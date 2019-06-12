@@ -3,14 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "scripts": {
-    "start": "nodemon ./app.js",
-    "seed": "cross-env DB_ENABLE_LOGGING=true node './seed'",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
-  },
-  "engines": {
-    "node": "10.10.0"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -27,5 +19,13 @@
     "mongoose": "^5.4.21",
     "morgan": "^1.9.1",
     "promise.prototype.finally": "^3.1.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "seed": "cross-env DB_ENABLE_LOGGING=true node './seed'",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+  },
+  "engines": {
+    "node": "10.10.0"
   }
 }
