@@ -13,7 +13,6 @@ const jsonParser = require('body-parser').json;
 const enableGlobalErrorLogging =
   process.env.ENABLE_GLOBAL_ERROR_LOGGING === 'true';
 
-app.use(express.static(path.join(__dirname, 'client', 'build')));
 // Body parser.
 app.use(jsonParser());
 
@@ -73,20 +72,29 @@ app.use((req, res) => {
   });
 });
 
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static('client/build'));
+// app.use(express.static(path.join(__dirname, 'client', 'build')));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
 
-//   app.get('*', (req, res) => {
-//     res.sendfile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-//   });
-// }
+  app.get('*', (req, res) => {
+    res.sendfile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 // Set port.
 app.set('port', process.env.PORT || 5000);
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-});
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendfile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+// });
 
 // Start listening on port.
 const server = app.listen(app.get('port'), () => {
