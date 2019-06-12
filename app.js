@@ -48,11 +48,11 @@ db.once('open', () => {
 app.use('/api', routes);
 
 // Friendly greeting for the root route.
-// app.get('/', (req, res) => {
-//   res.json({
-//     message: 'Welcome to the REST API project!'
-//   });
-// });
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Welcome to the REST API project!'
+  });
+});
 
 // Global error handler.
 app.use((err, req, res, next) => {
@@ -72,8 +72,6 @@ app.use((req, res) => {
   });
 });
 
-app.use(express.static(path.join(__dirname, 'client', 'build')));
-
 // if (process.env.NODE_ENV === 'production') {
 //   app.use(express.static('client/build'));
 
@@ -85,6 +83,7 @@ app.use(express.static(path.join(__dirname, 'client', 'build')));
 // Set port.
 app.set('port', process.env.PORT || 5000);
 
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 // ...
 // Right before your app.listen(), add this:
 app.get('*', (req, res) => {
