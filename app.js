@@ -28,11 +28,11 @@ const mongoose = require('mongoose');
 
 // Connect to mongodb server. The settings are to fix deprecation warnings.
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost:27017/fsjstd-restapi'
-  // {
-  //   useNewUrlParser: true,
-  //   useCreateIndex: true
-  // }
+  process.env.MONGODB_URI || 'mongodb://localhost:27017/fsjstd-restapi',
+  {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  }
 );
 
 const db = mongoose.connection;
