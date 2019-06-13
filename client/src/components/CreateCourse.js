@@ -23,10 +23,12 @@ class CreateCourse extends Component {
     const { title, description, estimatedTime, materialsNeeded } = this.state;
     const { history } = this.props;
 
+    // const normalUrl = `http://localhost:5000/api/courses`;
+    const herokuUrl = `https://fs-app-with-react-and-restapi.herokuapp.com/api/courses/`;
+
     axios
       .post(
-        // `http://localhost:5000/api/courses`,
-        `https://fs-app-with-react-and-restapi.herokuapp.com/api/courses`,
+        herokuUrl,
         {
           user: id,
           title: title,
