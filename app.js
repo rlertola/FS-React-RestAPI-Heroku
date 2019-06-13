@@ -48,14 +48,6 @@ db.once('open', () => {
 app.use('/api', routes);
 
 // app.use(express.static(path.join(__dirname, 'client', 'build')));
-console.log(process.env);
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-}
 
 // Friendly greeting for the root route.
 app.get('/', (req, res) => {
@@ -63,6 +55,14 @@ app.get('/', (req, res) => {
     message: 'Welcome to the REST API project!'
   });
 });
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
 
 // Global error handler.
 app.use((err, req, res, next) => {
