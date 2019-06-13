@@ -37,7 +37,7 @@ const mongoose = require('mongoose');
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-    'mongodb://<dbuser>:<dbpassword>@ds237267.mlab.com:37267/heroku_k0qd0t48',
+    'mongodb://ryan:ryanl1@ds237267.mlab.com:37267/heroku_k0qd0t48',
   {
     useNewUrlParser: true,
     useCreateIndex: true
