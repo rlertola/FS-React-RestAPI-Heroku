@@ -25,7 +25,8 @@ class CreateCourse extends Component {
 
     axios
       .post(
-        `http://localhost:5000/api/courses`,
+        // `http://localhost:5000/api/courses`,
+        `https:fs-app-with-react-and-restapi.herokuapp.com/api/courses`,
         {
           user: id,
           title: title,
