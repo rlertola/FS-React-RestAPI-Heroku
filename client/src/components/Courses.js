@@ -16,7 +16,7 @@ class Courses extends Component {
 
   getDataOnLoad = () => {
     axios
-      .get(`http://localhost:5000/api/courses`)
+      .get(`http://localhost:5000/courses`)
       .then(response => {
         this.setState({
           courses: response.data
