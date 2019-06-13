@@ -47,7 +47,7 @@ db.once('open', () => {
 
 app.use('/api', routes);
 
-// app.use(express.static(path.join(__dirname, 'client', 'build')));
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 // Friendly greeting for the root route.
 app.get('/', (req, res) => {
@@ -55,14 +55,6 @@ app.get('/', (req, res) => {
     message: 'Welcome to the REST API project!'
   });
 });
-
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-}
 
 // Global error handler.
 app.use((err, req, res, next) => {
@@ -85,9 +77,9 @@ app.use((req, res) => {
 // Set port.
 app.set('port', process.env.PORT || 5000);
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
 
 // Start listening on port.
 const server = app.listen(app.get('port'), () => {
