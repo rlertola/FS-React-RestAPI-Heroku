@@ -75,15 +75,13 @@ app.use((req, res) => {
 });
 
 // Set port.
-// app.set('port', process.env.PORT || 5000);
+// ap/p.set('port', process.env.PORT || 5000);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
 // Start listening on port.
-// const server = app.listen(app.get('port'), () => {
-//   console.log(`Express server is listening on port ${server.address().port}`);
-// });
-
-app.listen(process.env.PORT || 3000, () => console.log('Server has started'));
+const server = app.listen(app.get('port'), () => {
+  console.log(`Express server is listening on port ${server.address().port}`);
+});
