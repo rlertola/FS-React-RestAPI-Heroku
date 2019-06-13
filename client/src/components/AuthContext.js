@@ -44,7 +44,8 @@ class AuthProvider extends Component {
     const { emailAddress, password } = this.state;
 
     axios
-      .get(`http://localhost:5000/api/users`, {
+      // .get(`http://localhost:5000/api/users`, {
+      .get(`https://fs-app-with-react-and-restapi.herokuapp.com/api/users`, {
         auth: {
           username: emailAddress,
           password
@@ -76,7 +77,7 @@ class AuthProvider extends Component {
     } = this.state;
 
     axios
-      .post(`http://localhost:5000/api/users`, {
+      .post(`https://fs-app-with-react-and-restapi.herokuapp.com/api/users`, {
         firstName,
         lastName,
         emailAddress,

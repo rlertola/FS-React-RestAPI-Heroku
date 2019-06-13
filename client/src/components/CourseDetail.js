@@ -25,7 +25,10 @@ class CourseDetail extends Component {
     const { history } = this.props;
 
     axios
-      .get(`http://localhost:5000/api/courses/${id}`)
+      // .get(`http://localhost:5000/api/courses/${id}`)
+      .get(
+        `https://fs-app-with-react-and-restapi.herokuapp.com/api/courses/${id}`
+      )
       .then(response => {
         this.setState({
           course: response.data,
