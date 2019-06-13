@@ -27,8 +27,17 @@ const routes = require('./routes');
 const mongoose = require('mongoose');
 
 // Connect to mongodb server. The settings are to fix deprecation warnings.
+// mongoose.connect(
+//   process.env.MONGODB_URI || 'mongodb://localhost:27017/fsjstd-restapi',
+//   {
+//     useNewUrlParser: true,
+//     useCreateIndex: true
+//   }
+// );
+
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost:27017/fsjstd-restapi',
+  process.env.MONGODB_URI ||
+    'mongodb://<dbuser>:<dbpassword>@ds237267.mlab.com:37267/heroku_k0qd0t48',
   {
     useNewUrlParser: true,
     useCreateIndex: true
