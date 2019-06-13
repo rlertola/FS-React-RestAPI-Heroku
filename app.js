@@ -48,7 +48,7 @@ db.once('open', () => {
 app.use('/api', routes);
 
 // app.use(express.static(path.join(__dirname, 'client', 'build')));
-
+console.log(process.env);
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 
