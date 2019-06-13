@@ -26,7 +26,8 @@ app.use(cors());
 const routes = require('./routes');
 const mongoose = require('mongoose');
 
-app.set('port', process.env.PORT || 5000);
+const port = process.env.PORT || 5000;
+// app.set('port', process.env.PORT || 5000);
 // Connect to mongodb server. The settings are to fix deprecation warnings.
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost:27017/fsjstd-restapi',
@@ -93,4 +94,8 @@ app.get('*', (req, res) => {
 // Start listening on port.
 const server = app.listen(app.get('port'), () => {
   console.log(`Express server is listening on port ${server.address().port}`);
+});
+
+app.listen(port, () => {
+  console.log(`Express server is listening on port ${port}`);
 });
