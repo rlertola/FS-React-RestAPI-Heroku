@@ -75,7 +75,7 @@ app.use((req, res) => {
 });
 
 // Set port.
-// ap/p.set('port', process.env.PORT || 5000);
+app.set('port', process.env.PORT || 5000);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
