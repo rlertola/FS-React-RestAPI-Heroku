@@ -26,25 +26,24 @@ app.use(cors());
 const routes = require('./routes');
 const mongoose = require('mongoose');
 
-// Connect to mongodb server. The settings are to fix deprecation warnings.
-// mongoose.connect(
-//   process.env.MONGODB_URI || 'mongodb://localhost:27017/fsjstd-restapi',
-//   {
-//     useNewUrlParser: true,
-//     useCreateIndex: true
-//   }
-// );
-
 app.set('port', process.env.PORT || 5000);
-
+// Connect to mongodb server. The settings are to fix deprecation warnings.
 mongoose.connect(
-  process.env.MONGODB_URI ||
-    'mongodb://ryan:ryanl1@ds237267.mlab.com:37267/heroku_k0qd0t48',
+  process.env.MONGODB_URI || 'mongodb://localhost:27017/fsjstd-restapi',
   {
     useNewUrlParser: true,
     useCreateIndex: true
   }
 );
+
+// mongoose.connect(
+//   process.env.MONGODB_URI ||
+//     'mongodb://ryan:ryanl1@ds237267.mlab.com:37267/heroku_k0qd0t48',
+//   {
+//     useNewUrlParser: true,
+//     useCreateIndex: true
+//   }
+// );
 
 const db = mongoose.connection;
 
