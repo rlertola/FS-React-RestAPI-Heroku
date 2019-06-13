@@ -35,6 +35,8 @@ const mongoose = require('mongoose');
 //   }
 // );
 
+app.set('port', process.env.PORT || 5000);
+
 mongoose.connect(
   process.env.MONGODB_URI ||
     'mongodb://ryan:ryanl1@ds237267.mlab.com:37267/heroku_k0qd0t48',
@@ -84,7 +86,6 @@ app.use((req, res) => {
 });
 
 // Set port.
-app.set('port', process.env.PORT || 5000);
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
