@@ -26,7 +26,6 @@ app.use(cors());
 const routes = require('./routes');
 const mongoose = require('mongoose');
 
-const port = process.env.PORT || 5000;
 // app.set('port', process.env.PORT || 5000);
 // Connect to mongodb server. The settings are to fix deprecation warnings.
 mongoose.connect(
@@ -92,9 +91,11 @@ app.get('*', (req, res) => {
 });
 
 // Start listening on port.
-const server = app.listen(app.get('port'), () => {
-  console.log(`Express server is listening on port ${server.address().port}`);
-});
+// const server = app.listen(app.get('port'), () => {
+//   console.log(`Express server is listening on port ${server.address().port}`);
+// });
+
+const port = process.env.PORT || 5000;
 
 app.listen(port, () => {
   console.log(`Express server is listening on port ${port}`);
