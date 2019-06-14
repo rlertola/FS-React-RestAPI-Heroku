@@ -28,7 +28,7 @@ class CreateCourse extends Component {
 
     axios
       .post(
-        herokuUrl,
+        `https://fs-app-with-react-and-restapi.herokuapp.com/api/courses/`,
         {
           user: id,
           title: title,
