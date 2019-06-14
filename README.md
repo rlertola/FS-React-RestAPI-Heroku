@@ -4,6 +4,8 @@ This combines the project 9 school database REST API with a React frontend. User
 
 This project was built using React, Express, Mongo DB and Mongoose; routing with React-Router, and simple animation with React Spring.
 
+NOTE: This app was reconfigured specifically to be deployed to Heroku (https://fs-app-with-react-and-restapi.herokuapp.com/). For the original, see https://github.com/rlertola/Full-Stack-App-with-React-and-a-REST-API.
+
 #### Getting Started
 
 cd to **/api** and type
