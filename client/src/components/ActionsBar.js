@@ -14,7 +14,7 @@ class ActionsBar extends Component {
     const { id } = this.props.context;
     const { history } = this.props.withRouter;
 
-    // const normalUrl = `http://localhost:5000/api/courses/${this.props.id}`;
+    const localUrl = `http://localhost:5000/api/courses/${this.props.id}`;
     const herokuUrl = `https://fs-app-with-react-and-restapi.herokuapp.com/api/courses/${
       this.props.id
     }`;

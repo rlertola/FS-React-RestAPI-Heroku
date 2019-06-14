@@ -42,12 +42,11 @@ class AuthProvider extends Component {
   signIn = e => {
     if (e) e.preventDefault();
     const { emailAddress, password } = this.state;
-    const normalUrl = `http://localhost:5000/api/users`;
+    const localUrl = `http://localhost:5000/api/users`;
     const herokuUrl = `https://fs-app-with-react-and-restapi.herokuapp.com/api/users`;
 
     axios
-
-      .get(`http://localhost:5000/api/users`, {
+      .get(herokuUrl, {
         auth: {
           username: emailAddress,
           password
@@ -78,8 +77,11 @@ class AuthProvider extends Component {
       confirmPassword
     } = this.state;
 
+    const localUrl = `http://localhost:5000/api/users`;
+    const herokuUrl = `https://fs-app-with-react-and-restapi.herokuapp.com/api/users`;
+
     axios
-      .post(`http://localhost:5000/api/users`, {
+      .post(herokuUrl, {
         firstName,
         lastName,
         emailAddress,
