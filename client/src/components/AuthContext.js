@@ -47,7 +47,7 @@ class AuthProvider extends Component {
 
     axios
 
-      .get(herokuUrl, {
+      .get(`${herokuUrl}`, {
         auth: {
           username: emailAddress,
           password
@@ -79,7 +79,7 @@ class AuthProvider extends Component {
     } = this.state;
 
     axios
-      .post(herokuUrl, {
+      .post(`${herokuUrl}`, {
         firstName,
         lastName,
         emailAddress,
