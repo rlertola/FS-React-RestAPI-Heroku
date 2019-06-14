@@ -15,11 +15,11 @@ class Courses extends Component {
   }
 
   getDataOnLoad = () => {
-    // const normalUrl = `http://localhost:5000/api/courses`;
+    const normalUrl = `http://localhost:5000/api/courses`;
     const herokuUrl = `https://fs-app-with-react-and-restapi.herokuapp.com/api/courses/`;
 
     axios
-      .get(`https://fs-app-with-react-and-restapi.herokuapp.com/api/courses/`)
+      .get(`http://localhost:5000/api/courses`)
       .then(response => {
         this.setState({
           courses: response.data

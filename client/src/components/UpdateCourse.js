@@ -37,7 +37,7 @@ class UpdateCourse extends Component {
     const herokuUrl = `https://fs-app-with-react-and-restapi.herokuapp.com/api/courses/${id}`;
 
     axios
-      .get(normalUrl)
+      .get(`http://localhost:5000/api/courses/${id}`)
       .then(response => {
         if (response.data.user._id === _id) {
           if (this._isMounted) {

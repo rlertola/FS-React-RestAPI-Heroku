@@ -47,7 +47,7 @@ class AuthProvider extends Component {
 
     axios
 
-      .get(normalUrl, {
+      .get(`http://localhost:5000/api/users`, {
         auth: {
           username: emailAddress,
           password
@@ -79,7 +79,7 @@ class AuthProvider extends Component {
     } = this.state;
 
     axios
-      .post(normalUrl, {
+      .post(`http://localhost:5000/api/users`, {
         firstName,
         lastName,
         emailAddress,
