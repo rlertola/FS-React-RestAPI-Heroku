@@ -21,7 +21,7 @@ class ActionsBar extends Component {
 
     axios
       .delete(
-        herokuUrl,
+        `/api/courses/${this.props.id}`,
         {
           auth: {
             username: emailAddress,

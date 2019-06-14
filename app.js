@@ -26,7 +26,6 @@ app.use(cors());
 const routes = require('./routes');
 const mongoose = require('mongoose');
 
-// app.set('port', process.env.PORT || 5000);
 // Connect to mongodb server. The settings are to fix deprecation warnings.
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost:27017/fsjstd-restapi',
@@ -35,15 +34,6 @@ mongoose.connect(
     useCreateIndex: true
   }
 );
-
-// mongoose.connect(
-//   process.env.MONGODB_URI ||
-//     'mongodb://ryan:ryanl1@ds237267.mlab.com:37267/heroku_k0qd0t48',
-//   {
-//     useNewUrlParser: true,
-//     useCreateIndex: true
-//   }
-// );
 
 const db = mongoose.connection;
 
@@ -84,20 +74,9 @@ app.use((req, res) => {
   });
 });
 
-// Set port.
-
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-// });
-
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
-
-// Start listening on port.
-// const server = app.listen(app.get('port'), () => {
-//   console.log(`Express server is listening on port ${server.address().port}`);
-// });
 
 const port = process.env.PORT || 5000;
 

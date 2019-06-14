@@ -19,7 +19,7 @@ class Courses extends Component {
     const herokuUrl = `https://fs-app-with-react-and-restapi.herokuapp.com/api/courses/`;
 
     axios
-      .get(herokuUrl)
+      .get(`/api/courses`)
       .then(response => {
         this.setState({
           courses: response.data
