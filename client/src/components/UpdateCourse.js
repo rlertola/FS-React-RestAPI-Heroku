@@ -33,13 +33,11 @@ class UpdateCourse extends Component {
     const { _id } = this.props.context.state;
     const { history } = this.props;
 
-    // const normalUrl = `http://localhost:5000/api/courses/${id}`;
+    const normalUrl = `http://localhost:5000/api/courses/${id}`;
     const herokuUrl = `https://fs-app-with-react-and-restapi.herokuapp.com/api/courses/${id}`;
 
     axios
-      .get(
-        `https://fs-app-with-react-and-restapi.herokuapp.com/api/courses/${id}`
-      )
+      .get(normalUrl)
       .then(response => {
         if (response.data.user._id === _id) {
           if (this._isMounted) {
