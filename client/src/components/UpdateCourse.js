@@ -73,7 +73,7 @@ class UpdateCourse extends Component {
 
     axios
       .put(
-        herokuUrl,
+        `http://localhost:5000/api/courses/${id}`,
         {
           user: _id,
           title: title,
